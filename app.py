@@ -39,7 +39,7 @@ model_gnb = GaussianNB()
 model_gnb.fit(X_train, y_train)
 
 # Interfaz de usuario con Streamlit
-st.title("Naive Bayes Fungal Classifier")
+st.title("Naive Bayes Fungal Classifier for AI Class S section")
 st.header("Miguel Angel Quintero Villegas 187684")
 
 accuracy_cnb = accuracy_score(y_test, model_cnb.predict(X_test))
