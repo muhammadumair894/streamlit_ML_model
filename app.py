@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import CategoricalNB, GaussianNB
 from sklearn.metrics import accuracy_score
+from st_audiorec import st_audiorec
 
 # Cargar los datos
 @st.cache_resource
@@ -48,6 +49,10 @@ accuracy_gnb = accuracy_score(y_test, model_gnb.predict(X_test))
 st.subheader(f"CategoricalNB Accuracy: {accuracy_cnb:.3f}")
 st.subheader(f"GaussianNB Accuracy: {accuracy_gnb:.3f}")
 
+wav_audio_data = st_audiorec()
+
+if wav_audio_data is not None:
+    st.audio(wav_audio_data, format='audio/wav')
 # Selector para elegir el modelo
 model_choice = st.selectbox("Seleccione el modelo de clasificación", ["CategoricalNB", "GaussianNB"])
 
